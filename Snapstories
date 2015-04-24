@@ -1,0 +1,34 @@
+=> Problem loading ./config/boot.rb
+=> Unable to locate app for 'Snapstories::Reports', try with :app_class => 'MyAppClass'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/mounter.rb:262:in `ensure_app_object!'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/mounter.rb:85:in `initialize'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/mounter.rb:305:in `new'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/mounter.rb:305:in `mount'
+  /Users/ianseyer/Documents/programming/web/misfits/snapstories/config/apps.rb:39:in `<top (required)>'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/reloader.rb:90:in `require'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/reloader.rb:90:in `safe_load'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/loader.rb:140:in `block in require_dependencies'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/loader.rb:138:in `each'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/loader.rb:138:in `require_dependencies'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-core-0.12.4/lib/padrino-core/loader.rb:58:in `load!'
+  /Users/ianseyer/Documents/programming/web/misfits/snapstories/config/boot.rb:46:in `<top (required)>'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-gen-0.12.4/lib/padrino-gen/generators/cli.rb:26:in `require'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-gen-0.12.4/lib/padrino-gen/generators/cli.rb:26:in `load_boot'
+  /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+  /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+  /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/invocation.rb:133:in `block in invoke_all'
+  /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/invocation.rb:133:in `each'
+  /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/invocation.rb:133:in `map'
+  /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/invocation.rb:133:in `invoke_all'
+  /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/group.rb:232:in `dispatch'
+  /usr/local/lib/ruby/gems/2.2.0/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+  /usr/local/lib/ruby/gems/2.2.0/gems/padrino-gen-0.12.4/bin/padrino-gen:16:in `<main>'
+    applying  mongoid (orm)...
+       apply  orms/mongoid
+      insert  Gemfile
+   identical  config/database.rb
+   identical  .components
+      insert  Rakefile
+      insert  Rakefile
+Snapstories::App does not exist.
+Please, change app name.
