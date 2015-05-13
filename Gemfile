@@ -15,7 +15,9 @@ gem 'rake'
 
 # Component requirements
 gem 'slim'
-gem 'mongoid', '~>3.0.0'
+gem 'mongoid', '>=4.0', :require => 'mongoid'
+gem 'activerecord', '>= 3.1', :require => 'active_record'
+gem 'activemodel', '~> 4.0'
 gem 'bullet'
 gem 'httparty'
 gem 'omniauth'
@@ -24,6 +26,7 @@ gem 'haml'
 gem 'yard-padrino'
 gem 'rack-cors'
 gem 'bcrypt'
+gem 'pg'
 gem 'geocoder'
 
 

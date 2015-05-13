@@ -1,13 +1,19 @@
-module Snapstories
+module SnapStories
   class App < Padrino::Application
     register Padrino::Mailer
     register Padrino::Helpers
 
     enable :sessions
-    Padrino.mount("organization").to("/")
-    Padrino.mount("reports").to("/reports")
-    Padrino.mount("auth").to("/auth")
-    
+    #configure our JSON builder, RABL
+    Rabl.configure do |config|
+        config.include_json_root = false
+        config.include_child_root = false
+    end
+
+    get '/hello' do 
+        puts 'hello'
+    end
+
     ##
     # Caching support.
     #
@@ -53,16 +59,34 @@ module Snapstories
     #   end
     #
 
-    ##
-    # You can manage errors like:
-    #
-    #   error 404 do
-    #     render 'errors/404'
-    #   end
-    #
-    #   error 500 do
-    #     render 'errors/500'
-    #   end
-    #
+    #Before every request
+    #1. Capture any JSON payload and put it in @data
+    #2. Authenticate non-idempotent methods via the API key
+    before do
+        catch_payload #creates data variable to hold all PUT/PATCH/POST data
+        #exclude PUT /login and PUT /users from requiring an api_key
+        if request.path_info.split('/') & ["login", "users"] == [] && request.request_method == "PUT"
+            if ["PUT", "DELETE", "PATCH", "POST"].include? request.request_method
+                # authenticate_api_key
+            end
+        end
+    end
+
+    #Throw custom 404s for records not found in our AR/Mongo databases
+    error ActiveRecord::RecordNotFound do
+      @error = APIError.new(404, 'That object was not found!')
+      halt 404, render('errors/single')
+    end
+    error Mongoid::Errors::DocumentNotFound do
+      @error = APIError.new(404, 'That object was not found!')
+      halt 404, render('errors/single')
+    end
+
+    #Enable Bullet, a gem to capture N+1 queries and log them
+    configure :development do
+      Bullet.enable = true
+      Bullet.bullet_logger = true
+      use Bullet::Rack
+    end
   end
 end

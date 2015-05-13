@@ -1,4 +1,4 @@
-module Snapstories
+module SnapStories
   class Organization < Padrino::Application
     register Padrino::Mailer
     register Padrino::Helpers

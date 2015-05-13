@@ -1,4 +1,4 @@
-module Snapstories
+module SnapStories
   class Auth < Padrino::Application
     register Padrino::Mailer
     register Padrino::Helpers

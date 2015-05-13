@@ -1,9 +1,9 @@
 ---
-:orm: mongoid
+:orm: activerecord
 :test: rspec
 :mock: none
 :script: none
 :renderer: slim
 :stylesheet: none
-:namespace: Snapstories
+:namespace: SnapStories
 :migration_format: number

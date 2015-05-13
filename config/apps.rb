@@ -28,19 +28,15 @@
 Padrino.configure_apps do
   # enable :sessions
   set :session_secret, 'b206244f88585e12416f8c3cc55134809b37bdea4491440ba39c095fc1087751'
-  set :protection, :except => :path_traversal
-  set :protect_from_csrf, true
+  set :protection, false
+  set :protect_from_csrf, false
 end
 
 # Mounts the core application for this project
+Padrino.mount('SnapStories::App', :app_file => Padrino.root('app/app.rb')).to('/')
 
-Padrino.mount('Snapstories::Organization', :app_file => Padrino.root('organization/app.rb')).to('/organization')
+#Padrino.mount('SnapStories::Organization').to('/organization')
 
-Padrino.mount('Snapstories::Reports', :app_file => Padrino.root('reports/app.rb')).to('/reports')
+#Padrino.mount('SnapStories::Reports').to('/reports')
 
-Padrino.mount('Snapstories::Auth', :app_file => Padrino.root('auth/app.rb')).to('/auth')
-
-Padrino.mount('Snapstories::T', :app_file => Padrino.root('_t/app.rb')).to('/_t')
-
-Padrino.mount('Snapstories::Reviews', :app_file => Padrino.root('reviews/app.rb')).to('/reviews')
-Padrino.mount('Snapstories::App', :app_file => Padrino.root('app/app.rb')).to('/')
+Padrino.mount('SnapStories::Auth', :app_file => Padrino.root('auth/app.rb')).to('/auth')

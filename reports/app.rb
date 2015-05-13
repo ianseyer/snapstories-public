@@ -1,4 +1,4 @@
-module Snapstories
+module SnapStories
   class Reports < Padrino::Application
     register Padrino::Mailer
     register Padrino::Helpers
